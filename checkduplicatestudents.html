@@ -1,0 +1,190 @@
+﻿<html>
+<!-- non framed -->
+<head>
+<title>Check for Duplicate Students</title>
+~[wc:UI_js_includes]
+~[wc:UI_submitprogress]
+~[wc:commonscripts]
+<link href="/images/powerschool.css" rel="stylesheet">
+</head>
+
+<body marginwidth=12 marginheight=12 topmargin=12 leftmargin=12 bgcolor="#ffffff">
+
+<!--<form action="~[if.~[gpv:dupchecktype]=enroll]~[x:state_enrollmentpage][else]/admin/students/home.html[/if]" method="POST">-->
+<form action="home.html" method="get">
+~[wc:admin_header]<!-- breadcrumb start --><a href="/admin/home.html" target="_top">Start Page</a> &gt; <a href="/admin/functions.html" target="_top">Special Functions</a> &gt; <a href="/admin/students/newstudent.html">Enroll New Student</a> &gt; Check for Duplicate Students<!-- breadcrumb end -->~[wc:admin_navigation]
+
+<!-- start of title -->
+<table border="0" cellspacing="0" cellpadding="4">
+<tr>
+<td class="header">Check for Duplicate Students</td>
+</tr>
+</table>
+<br><br>
+<!-- end of title -->
+
+<!-- start of content and bounding box -->
+<table border="0" cellspacing="0" cellpadding="0" align="center">
+<tr>
+<td colspan="2" background="/images/bond_3000_top.gif" align="right"><img src="/images/bound_box_top_right1.gif" width="15" height="9" alt="" border="0"></td>
+<td width="25"><img src="/images/bound_box_top_right2.gif" width="25" height="9" alt="" border="0"></td>
+</tr>
+<tr>
+<td width="23" background="/images/bond_box_left_edge.gif"><img src="/images/spacer.gif" width="23" height="1"></td>
+<td>
+
+<table border="0" cellspacing="0" cellpadding="4">
+<tr bgcolor="#f6f6f6">
+<td class="bold" rowspan="2">Student<br>Number</td>
+<td class="bold" rowspan="2">Name<br>Last, First</td>
+<td class="bold" rowspan="2">School</td>
+<td class="bold" rowspan="2">DOB</td>
+<td class="bold" rowspan="2">SSN</td>
+<td class="bold" rowspan="2">Home<br>Phone</td>
+<td class="bold" rowspan="2">Entry<br>Date</td>
+<td class="bold" rowspan="2">Exit<br>Date</td>
+<td class="bold" rowspan="2">Enroll<br>Status</td>
+<td class="bold" colspan="3">Matched by:</td>
+</tr>
+<tr bgcolor="#f6f6f6">
+<td class="bold">Last<br>Name/<br>DOB</td>
+<td class="bold">SSN</td>
+<td class="bold">Phone</td>
+</tr>
+<tr align="center" bgcolor="#edf3fe">
+<td>[studentnumber]</td>
+<td align="left">[namecolumn]</td>
+<td>[studschoolabbr]</td>
+ <td>[dob-date]</td>
+<td>[SSNumber]</td>
+<td>[homephonenum]</td>
+<td>[entry-date]</td>
+<td>[exit-date]</td>
+<td>[enrollstatus]</td>
+<td>[lastnamematch]</td>
+<td>[ssnmatch]</td>
+<td>[phonematch]</td>
+</tr>
+<tr>
+<td align="center" colspan="11"><br>
+~[if.~[gpv:dupchecktype]=enroll] If you find a match for this student in the list above, click on the<br>student's name to re-enroll that student or to go to the student's detail screens.
+<p>
+If no match is found, click on the 'Enroll' button below to proceed with a new enrollment.
+<p>
+[else]If you find a match for this student in the list above, click on the<br>student's name to go to the student's detail screens.
+<p>
+To transfer [lastfirst] to [schoolname],<br>click on the 'Transfer' button below.
+[/if]</td>
+</tr>
+</table>
+<br>
+ 
+</td>
+<td width="25" background="/images/bond_box_right_edge.gif"><img src="/images/spacer.gif" width="25" height="1"></td>
+</tr>
+<tr>
+<td colspan="2" background="/images/bond_3000_bot.gif" align="right"><img src="/images/bound_box_bot_right1.gif" width="15" height="12" alt="" border="0"></td>
+<td width="25"><img src="/images/bound_box_bot_right2.gif" width="25" height="12" alt="" border="0"></td>
+</tr>
+<tr>
+
+<td colspan="2" align="right">
+	~[if.~[gpv:dupchecktype]=enroll]
+		<input type="hidden" name="ac" value="prim">
+		<input type="hidden" name="[01]LastFirst" value="~[gpv:lastfirst]">
+		<input type="hidden" name="[01]first_name" value="~[gpv:first]">
+		<input type="hidden" name="[01]last_name" value="~[gpv:last]">
+		<input type="hidden" name="[01]middle_name" value="~[gpv:middlename]">
+		<input type="hidden" name="[01]gender" value="~[gpv:gender]">
+		<input type="hidden" name="[01]street" value="~[gpv:street]">
+		<input type="hidden" name="[01]city" value="~[gpv:city]">
+		<input type="hidden" name="[01]state" value="~[gpv:state]">
+		<input type="hidden" name="[01]zip" value="~[gpv:zip]">
+		<input type="hidden" name="[01]mother" value="~[gpv:mother]">
+		<input type="hidden" name="[01]father" value="~[gpv:father]">
+		<input type="hidden" name="[01]applic_submitted_date" value="~[gpv:dateofapplication]">
+		<input type="hidden" name="[01]Student_Number" value="[student_number]">
+		<input type="hidden" name="[01]SSN" value="~[gpv:ssn]">
+		<input type="hidden" name="[01]DOB" value="~[gpv:dob]">
+		<input type="hidden" name="[01]Home_Phone" value="~[gpv:home_phone]">
+		<input type="hidden" name="[01]EntryDate" value="~[gpv:entrydate]">
+		<input type="hidden" name="[01]Grade_Level" value="~[gpv:grade_level]">
+		<input type="hidden" name="[01]gradeapplyingfor" value="~[gpv:gradeapplyingfor]">
+		<input type="hidden" name="[01]EntryCode" value="~[gpv:entrycodes]">
+		<input type="hidden" name="[01]currentschool" value="~[gpv:currentschool]">
+		<input type="hidden" name="[01]currentschooldistrict" value="~[gpv:currentschooldistrict]">
+		<input type="hidden" name="[01]Fee_Exemption_Status" value="~[gpv:feeexemptionstatus]">
+		<input type="hidden" name="[01]track" value="[track]">
+		<input type="hidden" name="[01]districtofresidence" value="~[gpv:districtofresidence]">
+		<input type="hidden" name="[01]MembershipShare" value="[MembershipShare]">
+		<input type="hidden" name="[01]middle_name" value="~[gpv:middlename]">
+		<input type="hidden" name="[01]guardianemail" value="~[gpv:guardianemail]">
+		<input type="hidden" name="[01]fteid" value="~[gpv:fteid]">
+		<input type="hidden" name="[01]wl_app_priority" value="~[gpv:applicationprioritystatus]">
+		<input type="hidden" name="[01]wl_campus" value="~[gpv:campusappliedto]">
+		<input type="hidden" name="[01]wl_region" value="~[gpv:waitlistregion]">
+		<input type="hidden" name="curstudentid" value="~(curstudentid)">
+		<input type="hidden" name="[01]mother_fn" value="~[gpv:motherfirstname]">
+		<input type="hidden" name="[01]mother_ln" value="~[gpv:motherlastname]">
+		<input type="hidden" name="[01]father_fn" value="~[gpv:fatherfirstname]">
+		<input type="hidden" name="[01]father_ln" value="~[gpv:fatherlastname]">
+		<input type="hidden" name="[01]guardian_fn" value="~[gpv:guardianfirstname]">
+		<input type="hidden" name="[01]guardian_ln" value="~[gpv:guardianlastname]">
+		<input type="hidden" name="[01]motherdayphone" value="~[gpv:motherworkphone]">
+		<input type="hidden" name="[01]mother_home_phone" value="~[gpv:motherhomephone]">
+		<input type="hidden" name="[01]mother_day_phone_ext" value="~[gpv:motherworkphoneext]">
+		<input type="hidden" name="[01]fatherdayphone" value="~[gpv:fatherworkphone]">
+		<input type="hidden" name="[01]father_day_phone_ext" value="~[gpv:fatherworkphoneext]">
+		<input type="hidden" name="[01]father_home_phone" value="~[gpv:fatherhomephone]">
+		<input type="hidden" name="[01]guardian_day_phone" value="~[gpv:guardianworkphone]">
+		<input type="hidden" name="[01]guardian_day_phone_ext" value="~[gpv:guardianworkphoneext]">
+		<input type="hidden" name="[01]track" value="">
+		<input type="hidden" name="[01]CA_Birthplace_Country" value="USA">
+		<input type="hidden" name="[01]CA_Birthplace_State" value="CA">
+		
+		<!--[state_specific_flds]
+		[insert_state_post_values]-->
+		
+		<input type="image" src="/images/btn_enroll_on.gif" width="66" height="25" alt="" border="0">
+	[else]
+		<input type="hidden" name="ac" value="transfertasots">
+		<input type="hidden" name="dothisfor" value="single">
+		<input type="hidden" name="curstudid" value="~[gpv:dothisfor]">
+		<input type="hidden" name="schoolid" value="~[gpv:schoolid]">
+		<input type="image" src="/images/btn_transfer_on.gif" width="81" height="25" alt="" border="0">
+	[/if]
+	
+</td>
+
+
+<td>&nbsp;</td>
+</tr>
+</table>
+<br>
+<!-- end of content of bounding box -->
+<!-- These fields bring data over from the new student page, family management fields -->
+	 <input type="hidden" name="addfromexisting" value="~[gpv:addfromexisting]">
+	 <input type="hidden" name="doLink" value="~[gpv:doLink]">
+     <input type="hidden" name="includeStudentLastName" value="~[gpv:includeStudentLastName]">
+     <input type="hidden" name="dupchecktype" value="~[gpv:dupchecktype]">
+	<!--<input type="hidden" name="[01]Family_Ident" value="~[gpv:FamilyID_T]">
+	<input type="hidden" name="[01]Mother" value="~[gpv:MomsName_t]">
+	<input type="hidden" name="[01]Father" value="~[gpv:DadsName_t]">
+	<input type="hidden" name="[01]guardian_ln" value="~[gpv:GuardianLastName_t]">
+	<input type="hidden" name="[01]guardian_fn" value="~[gpv:GuardianFirstName_t]">
+
+	<input type="hidden" name="GuardianLastName_t" value="~[gpv:GuardianLastName_t]">
+	<input type="hidden" name="GuardianFirstName_t" value="~[gpv:GuardianFirstName_t]">
+
+	
+	<input type="hidden" name="[01]street" value="~[gpv:Street_t]">
+	<input type="hidden" name="[01]City" value="~[gpv:City_t]">
+	<input type="hidden" name="SiblingLastName_t" value="~[gpv:SiblingLastName_t]">
+	<input type="hidden" name="SiblingFirstName_t" value="~[gpv:SiblingFirstName_t]">
+	<input type="hidden" name="phone" value="[home_phone]">-->
+</form>
+
+~[wc:admin_footer]
+
+</body>
+</html><!-- non framed -->

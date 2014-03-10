@@ -1,0 +1,165 @@
+﻿headerrow { border-width: 1pt; }
+        
+        .maincontent{}
+        
+        input,select,textarea
+        {
+            border:1px solid #000;       
+        }
+        
+        label 
+		{ 
+		    font-weight: bold; 
+		    vertical-align: middle;
+		}
+		
+		.required{}
+		
+		#newstudentForm .label 
+		{
+            padding-top: 2px;
+            padding-right: 8px;
+            vertical-align: top;
+            text-align: left;
+            width: 125px;
+        }
+
+        #newstudentForm .field 
+        {
+            padding-bottom: 10px;
+        }
+
+        #en .status 
+        {
+            padding-top: 2px;
+            padding-left: 8px;
+            vertical-align: top;
+            width: 246px;
+        }
+        
+        #newstudentForm label.error 
+        {
+            background:url("/scripts/jquery-validate/demo/images/error.png") no-repeat 0px 0px;
+            padding-left: 16px;
+            padding-bottom: 2px;
+            font-size: 9px;
+            font-weight: bold;
+            color: #F33;
+        }
+        
+        #newstudentForm select.error 
+        {
+            border:1px solid #F33;
+        }
+        
+        
+        #newstudentForm select.success 
+        {
+            border:1px solid #fff;
+        }
+
+        #newstudentForm label.checked 
+        {
+            background:url("/scripts/jquery-validate/demo/images/success.png") no-repeat 0px 0px;
+        }
+        
+        .bold
+        {
+            font-weight: bold;    
+        }
+        
+        .note_floatright
+        {
+            color: #000;
+            font-size: 9px;
+            margin-left: 50px;   
+        }
+        
+        input.error { border: 1px solid red; }
+        
+        .waitlist
+        {
+            border:1px solid #F33;
+            background-color: #f33333;  
+            text-align: center;
+            font-weight: bold; 
+            width: 100%;  
+        }
+        
+       /* .defaultText { width: 300px; }
+        
+        .defaultTextActive { color: #a1a1a1; font-style: italic; }*/
+        
+        
+        
+        #demographicsForm .label 
+		{
+            padding-top: 2px;
+            padding-right: 8px;
+            vertical-align: top;
+            text-align: right;
+            width: 125px;
+        }
+
+        #demographicsForm .field 
+        {
+            padding-bottom: 10px;
+        }
+
+        #demographicsForm .status 
+        {
+            padding-top: 2px;
+            padding-left: 8px;
+            vertical-align: top;
+            width: 246px;
+        }
+        
+        #demographicsForm label.error 
+        {
+            background:url("/scripts/jquery-validate/demo/images/error.png") no-repeat 0px 0px;
+            padding-left: 16px;
+            padding-bottom: 2px;
+            font-size: 9px;
+            font-weight: bold;
+            color: #F33;
+        }
+        #demographicsForm select.error 
+        {
+            border:1px solid #F33;
+        }
+        
+        select.error 
+        {
+            border:1px solid #F33;
+        }
+        
+        #demographicsForm select.success 
+        {
+            border:1px solid #fff;
+        }
+
+        #demographicsForm label.checked 
+        {
+            background:url("/scripts/jquery-validate/demo/images/success.png") no-repeat 0px 0px;
+        }
+        
+         body
+        {
+            font-family: Geneva, Verdana, Arial, Helvetica;
+            font-size:   10px;
+            color: #333333;
+        }
+		
+		.required
+		{
+		    
+			/*background-color:#FCC;*/
+		}
+
+		
+		td
+		{
+		    font-size: 12px;
+		    vertical-align: middle;
+		}
+        

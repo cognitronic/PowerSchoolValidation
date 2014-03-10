@@ -1,0 +1,547 @@
+﻿<html>
+<!-- non framed -->
+<head>
+    <title>Enroll New Student</title>
+    ~[wc:UI_js_includes]
+    <!--~[wc:UI_submitprogress]-->
+    ~[wc:commonscripts]
+    <link href="/images/powerschool.css" rel="stylesheet" />
+    <link href="datapath.css" rel="stylesheet" />
+    <script src="/scripts/jquery-1.2.6-vsdoc.js" type="text/javascript"></script>
+    <script src="/scripts/jquery-1.2.6.js" type="text/javascript"></script>
+    <script src="/scripts/jquery.validate.js" type="text/javascript"></script>
+    <script src="/scripts/jquery.maskedinput-1.1.4.js" type="text/javascript"></script>
+    <script src="waitlist.js" type="text/javascript"></script>
+</head>
+<body marginwidth="12" marginheight="12" topmargin="12" leftmargin="12" bgcolor="#ffffff">
+    <form id="newstudentForm" action="WaitlistSchool.html?frn=~[gpv:frn]" method="POST">
+    <!--<form id="newstudentForm" action="htmlpage.html" method="get">-->
+    ~[wc:admin_header]<!-- breadcrumb start --><a href="/admin/home.html" target="_top">Start
+        Page</a> &gt; <a href="/admin/functions.html" target="_top">Special Functions</a>
+    &gt; Enroll New Student<!-- breadcrumb end -->~[wc:admin_navigation]
+    <!-- start of title -->
+    <table border="0" cellspacing="0" cellpadding="4" width="700">
+        <tr>
+            <td class="header">
+               Waitlist Student
+            </td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <!-- end of title -->
+    <!-- start of content and bounding box -->
+    <table border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+            <td colspan="2" background="/images/bond_3000_top.gif" align="right">
+                <img src="/images/bound_box_top_right1.gif" width="15" height="9" alt=""
+                    border="0" />
+            </td>
+            <td width="25">
+                <img src="/images/bound_box_top_right2.gif" width="25" height="9" alt=""
+                    border="0" />
+            </td>
+        </tr>
+        <tr>
+            <td width="23" background="/images/bond_box_left_edge.gif">
+                <img src="/images/spacer.gif" width="23" height="1" />
+            </td>
+            <td>
+                <!--<input class="submit" type="submit" value="Submit" />-->
+                <table class="maincontent" border="0" cellspacing="0" cellpadding="4" width="800">
+                    <tr>
+                        <td class="label">
+                            <label id="lfirstname" for="firstname">
+                                First Name:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="firstname" name="[01]first_name" value="" size="20" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Middle Name:
+                        </td>
+                        <td>
+                            <input type="text" id="middlename" name="[01]middle_name" value="" size="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="llastname" for="lastname">
+                                Last Name:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="lastname" name="[01]last_name" value="" size="20" onchange="setLastFirst();"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lbod" for="dob">
+                                Date of Birth MM/DD/YYYY:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="dob" name="[01]dob" value="" size="10" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lcurrentgrade" for="currentgrade">
+                                Current Grade:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="currentgrade" name="[01]grade_level" value="" size="2" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lgradeapplyingfor" for="gradeapplyingfor">
+                                Grade Applying For:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="gradeapplyingfor" name="[01]gradeapplyingfor" value="" size="2"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lgender" for="gender">
+                                Gender:
+                            </label>
+                        </td>
+                        <td>
+                            <select id="gender" name="[01]gender">
+                                <option value="M">
+                                    Male
+                                </option>
+                                <option value="F">
+                                    Female
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lcurrentschool" for="currentschool">
+                                Current School:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="currentschool" name="[01]currentschool" value="" size="30" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lcurrentschooldistrict" for="currentschooldistrict">
+                                Current School District:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="currentschooldistrict" name="[01]currentschooldistrict" value="" size="30" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lstreet" for="street">
+                                Street:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="street" name="[01]street" value="" size="30" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lcity" for="city">
+                                City:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="city" name="[01]city" value="" size="20" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lstate" for="state">
+                                State:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="state" name="[01]state" value="" size="2" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lzip" for="zip">
+                                Zip:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" name="[01]zip" id="zip" value="" size="5" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label id="lmotherlastname" for="motherlastname">
+                                Parent1/Mother's Last Name:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="motherlastname" name="" value="" size="30" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label id="lmotherfirstname" for="motherfirstname">
+                                Parent1/Mother's First Name:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="motherfirstname" name=""  value="" size="30"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Parent1/Mother's Work Phone (000)000-0000
+                        </td>
+                        <td>
+                            <input type="text" id="motherworkphone" name="[01]motherdayphone" value="" size="15" />ext
+                            <input type="text" id="motherworkphoneext" name="[01]mother_day_phone_ext" value="" size="2" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Parent1/Mother's Home Phone (000)000-0000
+                        </td>
+                        <td>
+                            <input type="text" id="motherhomephone" name="[01]mother_home_phone" value="" size="15" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label id="lfatherlastname" for="fatherlastname">
+                                Parent2/Father's Last Name:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="fatherlastname" name="" value="" size="30" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lfatherfirstname" for="fatherfirstname">
+                                Parent2/Father's First Name:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="fatherfirstname" name="" value="" size="30" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Parent2/Father's Work Phone (000)000-0000
+                        </td>
+                        <td>
+                            <input type="text" id="fatherworkphone" name="[01]fatherdayphone" value="" size="15" />ext
+                            <input type="text" id="fatherworkphoneext" name="[01]father_day_phone_ext" value="" size="2" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Parent2/Father's Home Phone (000)000-0000
+                        </td>
+                        <td>
+                            <input type="text" id="fatherhomephone" name="[01]father_home_phone" value="" size="15" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Legal Guardian's Last Name:
+                        </td>
+                        <td>
+                            <input type="text" id="guardianlastname" name="[01]guardian_ln" value="" size="25" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Legal Guardian's First Name:
+                        </td>
+                        <td>
+                            <input type="text" name="guardianfirstname" id="[01]guardian_fn" value="" size="25" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Guardian's Daytime Phone (000)000-0000
+                        </td>
+                        <td>
+                            <input type="text" id="guardianworkphone" name="[01]guardian_day_phone" value="" size="15" />ext
+                            <input type="text" id="guardianworkphoneext" name="[01]guardian_day_phone_ext" value="" size="2" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Parent/Guardian Email Address
+                        </td>
+                        <td>
+                            <input type="text" id="guardianemail" name="[01]guardianemail" value="" size="30" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lwaitlistregion" for="waitlistregion">
+                               Wait List Region:
+                            </label>
+                        </td>
+                        <td>
+                            <select id="waitlistregion" name="[01]wl_region">
+                                <option value="">
+                                
+                                </option>
+                                <option value="Bay Area">
+                                    Bay Area
+                                </option>
+                                <option value="Central Valley">
+                                    Central Valley
+                                </option>
+                                <option value="Los Angeles">
+                                    Los Angeles     
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lcampusappliedto" for="campusappliedto">
+                                Campus Applied To:
+                            </label>
+                        </td>
+                        <td>
+                            <select name="[01]wl_campus" id="campusappliedto">
+                            ~[tlist_sql;
+                            SELECT school_number, name from schools order by name]
+	                            <option value="~(school_number;t)">
+	                                ~(name;t)
+	                            </option>
+	                        [/tlist_sql]
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="ldateofapplication" for="dateofapplication">
+                                Date of Application:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="dateofapplication" name="[01]applic_submitted_date" value="" size="10" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lapplicationprioritystatus" for="applicationprioritystatus">
+                                Application Priority Status:
+                            </label>
+                        </td>
+                        <td>
+                            <select id="applicationprioritystatus" name="[01]wl_app_priority">
+                                <option value="Chartering District">
+                                    Chartering District
+                                </option>
+                                <option value="Employee">
+                                    Employee
+                                </option>
+                                <option value="Founding Family">
+                                    Founding Family
+                                </option>
+                                <option value="None">
+                                    None
+                                </option>
+                                <option value="Sibling">
+                                    Sibling
+                                </option>
+                                <option value="Transfer">
+                                    Transfer
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Student number
+                        </td>
+                        <td>
+                            <input type="text" name="[01]student_number" value="" size="12" readonly="readonly" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Social Security Number
+                        </td>
+                        <td>
+                            <input type="text" id="ssn" name="[01]SSN" value="" size="17" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lenrollmentdate" for="enrollmentdate">
+                               Enrollment Date:
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="enrollmentdate" name="[01]entrydate" value="~[short.date]" size="11" onchange="checkDates('entrydate');" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lfulltimeequivalency" for="fteid">
+                                Full Time Equivalency:
+                            </label>
+                        </td>
+                        <td>
+                            ~[if.district.office]FTE selection can only occur within a school.[else]~[custompopup;name=fteid" id="fteid;list=att_ftegetlist][/if.district.office]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lgradelevel" for="grade_level">
+                                Grade Level:
+                            </label>
+                        </td>
+                        <td>
+                            ~[custompopup;name=grade_level" id="grade_level;list=gradelevels]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lentrycode" for="entrycodes">
+                                Entry Code:
+                            </label>
+                        </td>
+                        <td>
+                            <!--~[custompopup.entrycodes.lists.entrycodes]-->
+                            <select id="entrycodes" name="[01]entrycode">
+                                <option value="">
+                                </option>
+                                <option value="A">
+                                    A (Indistrict - Aspire)
+                                </option>
+                                <option value="IA">
+                                    IA (Intra Aspire)
+                                </option>
+                                <option value="I">
+                                    I (Intradistrict - Out of district)
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <!--<tr>
+                        <td class="bold">
+                            Track
+                        </td>
+                        <td>
+                            ~[custompopup;name=track;list=tracks.blank]
+                        </td>
+                    </tr>-->
+                    <tr>
+                        <td class="label">
+                            <label id="ldistrictofresidence" for="districtofresidence">
+                                <a href="/admin/districts/" target="_top">District of Residence</a>
+                            </label>
+                        </td>
+                        <td>
+                            ~[custompopup;name=[01]districtofresidence" id="districtofresidence;list=lists.districts]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label">
+                            <label id="lfeeexemptionstatus" for="feeexemptionstatus">
+                                Fee Exemption Status:
+                            </label>
+                        </td>
+                        <td>
+                            <select id="feeexemptionstatus" name="[01]fee_exemption_status">
+                                <option value="0">
+                                    Student Not Exempted
+                                </option>
+                                <option value="1">
+                                    Student Exempted from Course fees
+                                </option>
+                                <option value="2">
+                                    Student Exempted from School Fees
+                                </option>
+                                <option value="3">
+                                    Student Exempted from All Fees
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            School
+                        </td>
+                        <td>
+                            ~[schoolname]
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Comments - for use by school
+                        </td>
+                        <td>
+                            <textarea id="comments" name="[01]comments" cols="60" rows="15"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td >
+                            Wait List Number - determined by lottery
+                        </td>
+                        <td>
+                            <input id="waitlistnumber" type="text" name="[01]wl_number" value="" size="4" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td width="25" background="/images/bond_box_right_edge.gif">
+                <img src="web_root/images/spacer.gif" width="25" height="1">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" background="/images/bond_3000_bot.gif" align="right">
+                <img src="/images/bound_box_bot_right1.gif" width="15" height="12" alt=""
+                    border="0">
+            </td>
+            <td width="25">
+                <img src="/images/bound_box_bot_right2.gif" width="25" height="12" alt=""
+                    border="0">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right">
+            <input type="hidden" id="lastfirst" name="lastfirst" value="" />
+            <input type="hidden" id="mother" name="[01]mother" value="" />
+            <input type="hidden" id="father" name="[01]father" value="" />
+            <input type="hidden" name="ac" value="prim">
+            <!--<input type="hidden" name="dupchecktype" value="enroll" />
+            <input type="hidden" name="ac" value="eEnrollCheckDup" />-->
+                <!--
+                
+                <input type="hidden" name="doftevalidation">-->~[submitbutton]
+                <!--<input class="submit" type="submit" value="Submit" />-->
+            </td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+    <br>
+    <!-- end of content of bounding box -->
+    ~[wc:admin_footer]
+    </form>
+
+</body>
+</html><!-- non framed -->
